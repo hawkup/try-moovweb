@@ -8,8 +8,7 @@ module.exports = new Router()
   .match('/service-worker.js', ({ serviceWorker }) => {
     serviceWorker('.nuxt/dist/client/service-worker.js')
   })
-  .use(nuxtRoutes)
-  .get('/posts/:id', ({ cache }) => {
+  .match('/posts/:id', ({ cache }) => {
     cache({
       browser: {
         maxAgeSeconds: 0,
@@ -21,3 +20,4 @@ module.exports = new Router()
       },
     })
   })
+  .use(nuxtRoutes)

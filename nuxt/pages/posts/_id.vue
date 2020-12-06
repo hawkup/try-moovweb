@@ -15,7 +15,6 @@ export default {
     this.post = await fetch(`https://api.nuxtjs.dev/posts/${this.$route.params.id}`).then(res =>
       res.json()
     )
-    console.log(this.post)
   }
 }
 </script>

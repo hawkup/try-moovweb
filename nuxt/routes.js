@@ -9,3 +9,15 @@ module.exports = new Router()
     serviceWorker('.nuxt/dist/client/service-worker.js')
   })
   .use(nuxtRoutes)
+  .get('/posts/:id', ({ cache }) => {
+    cache({
+      browser: {
+        maxAgeSeconds: 0,
+        serviceWorkerSeconds: 60 * 60 * 24,
+      },
+      edge: {
+        maxAgeSeconds: 60 * 60 * 24,
+        staleWhileRevalidateSeconds: 60 * 60,
+      },
+    })
+  })

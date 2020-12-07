@@ -23,7 +23,7 @@ export default {
     }
   },
   async fetch() {
-    this.posts = await fetch('https://api.nuxtjs.dev/posts').then(res =>
+    this.posts = await fetch('https://jsonplaceholder.typicode.com/posts').then(res =>
       res.json()
     )
   }
